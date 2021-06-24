@@ -1,0 +1,24 @@
+﻿.footerlinks {
+    color: #ffffff;
+    text-decoration: none !important;
+}
+ 
+.footerlinks:hover {
+        color: #ffd800;
+    }
+ 
+#footer1 {
+    background: darkgray;
+}
+ 
+#footer2 {
+    background: black;
+}
+
+.backgroundimage {
+    position: relative;
+}
+
+.content {
+    position: absolute;
+}

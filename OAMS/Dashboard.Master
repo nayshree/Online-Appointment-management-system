@@ -1,0 +1,222 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.master.cs" Inherits="OAMS.Dashboard1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <!--     Fonts and icons dashboard  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <!-- Material Kit CSS for dashboard-->
+  <link href="dashboardcss/assets/css/material-dashboard.css" rel="stylesheet" />
+
+  <title>OAMS - Dashboard</title>
+
+     <asp:ContentPlaceHolder ID="head" runat="server"> </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="forms" runat="server">
+    <% 
+        String utmid = Session["UTMID"] as string;
+        String uname = Session["Name"] as string;
+    %>
+
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white">
+      <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+
+          <div class="logo">
+            <a class="simple-text logo-normal">
+              Welcome <%Response.Write(uname); %>
+            </a>
+          </div>
+
+            <% if (utmid == "4") {  %>
+
+            <div class="sidebar-wrapper">
+                
+                <ul class="nav">
+                    <li class="nav-item active  ">
+                        <asp:LinkButton ID="LinkButton1" runat="server" Width="230px" Font-Size="Medium"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> Update Profile</asp:LinkButton>
+                    </li>
+                    <!-- your sidebar here -->
+                </ul>
+                <ul class="nav">
+                    <li class="nav-item active  ">
+                        <asp:LinkButton ID="LinkButton2" runat="server" Width="230px" OnClick="lb2_click" Font-Size="Medium"> <i class="fa fa-calendar" aria-hidden="true"></i> Book Appointment </asp:LinkButton>
+                    </li>
+                    <!-- your sidebar here -->
+                </ul>
+                <ul class="nav">
+                    <li class="nav-item active  ">
+                        <asp:LinkButton ID="LinkButton3" runat="server" Width="230px" Font-Size="Medium" OnClick="user_appointment"> <i class="fa fa-calendar" aria-hidden="true"></i> View Appointment </asp:LinkButton>
+                    </li>
+                    <!-- your sidebar here -->
+                </ul>
+                <ul class="nav">
+                    <li class="nav-item active  ">
+                        <asp:LinkButton ID="LinkButton4" runat="server" Width="230px" Font-Size="Medium" OnClick="user_feedback"> <i class="fa fa-comments-o" aria-hidden="true"></i> Feedback </asp:LinkButton>
+                    </li>
+                    <!-- your sidebar here -->
+                </ul>
+                <ul class="nav">
+                    <li class="nav-item active  ">
+                        <asp:LinkButton ID="LinkButton5" runat="server" Width="230px" Font-Size="Medium" OnClick="user_complaint"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Complaint </asp:LinkButton>
+                    </li>
+                    <!-- your sidebar here -->
+                </ul>
+            </div>
+
+            <% } %>
+
+
+            <% else if (utmid == "3") { %>
+            
+               <div class="sidebar-wrapper">
+                   
+                    <ul class="nav">
+                      <li class="nav-item active  ">
+                        <asp:LinkButton ID="LinkButton8" runat="server" Width="230px" Font-Size="Medium"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> Update Profile</asp:LinkButton>
+                      </li>
+                      <!-- your sidebar here -->
+                    </ul>
+                    <ul class="nav">
+                      <li class="nav-item active  ">
+                         <asp:LinkButton ID="LinkButton9" runat="server" Width="230px" Font-Size="Medium" OnClick="updateSchedule"> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Update Schedule</asp:LinkButton>
+                      </li>
+                      <!-- your sidebar here -->
+                    </ul>
+                    <ul class="nav">
+                      <li class="nav-item active  ">
+                         <asp:LinkButton ID="LinkButton10" runat="server" Width="230px" Font-Size="Medium" OnClick="approveAppointment"> <i class="fa fa-check" aria-hidden="true"></i> Approve Appointment</asp:LinkButton>
+                      </li>
+                      <!-- your sidebar here -->
+                    </ul>
+                     <ul class="nav">
+                      <li class="nav-item active  ">
+                         <asp:LinkButton ID="LinkButton11" runat="server" Width="230px" Font-Size="Medium" OnClick="viewAppointment"> <i class="fa fa-calendar" aria-hidden="true"></i> View Appointment</asp:LinkButton>
+                      </li>
+                      <!-- your sidebar here -->
+                    </ul>
+                    <ul class="nav">
+                      <li class="nav-item active  ">
+                         <asp:LinkButton ID="LinkButton12" runat="server" Width="230px" Font-Size="Medium" OnClick="Consultant_Complaint"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Complaint</asp:LinkButton>
+                      </li>
+                      <!-- your sidebar here -->
+                    </ul>
+                  </div>
+            
+            <% } %>
+
+            <% else if (utmid == "1") { %>
+               <div class="sidebar-wrapper">
+                    <ul class="nav">
+                      <li class="nav-item active  ">
+                        <asp:LinkButton ID="LinkButton13" runat="server" Width="230px" Font-Size="Medium" OnClick="lb13_click"> <i class="fa fa-key" aria-hidden="true"></i> Update Password </asp:LinkButton>
+                      </li>
+                      <!-- your sidebar here -->
+                    </ul>
+                    <ul class="nav">
+                      <li class="nav-item active  ">
+                        <asp:LinkButton ID="LinkButton14" runat="server" Width="230px" Font-Size="Medium" OnClick="lb14_click"> <i class="fa fa-check-circle" aria-hidden="true"></i> Verify Consultants </asp:LinkButton>
+                      </li>
+                      <!-- your sidebar here -->
+                    </ul>
+                    <ul class="nav">
+                      <li class="nav-item active  ">
+                       <asp:LinkButton ID="LinkButton15" runat="server" Width="230px" Font-Size="Medium" OnClick="lb15_click"> <i class="fa fa-check-circle" aria-hidden="true"></i> Verify Users </asp:LinkButton>
+                      </li>
+                      <!-- your sidebar here -->
+                    </ul>
+                    <ul class="nav">
+                      <li class="nav-item active  ">
+                        <asp:LinkButton ID="LinkButton16" runat="server" Width="230px" Font-Size="Medium" OnClick="profession_click"> <i class="fa fa-tasks" aria-hidden="true"></i> Manage Professions and Specialization </asp:LinkButton>
+                      </li>
+                      <!-- your sidebar here -->
+                    </ul>
+                     <ul class="nav">
+                      <li class="nav-item active  ">
+                        <asp:LinkButton ID="LinkButton17" runat="server" Width="230px" Font-Size="Medium" OnClick="qualification_click"> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Manage Qualifications </asp:LinkButton>
+                      </li>
+                      <!-- your sidebar here -->
+                    </ul>
+                   
+                  </div>
+                        
+            <% } %>
+        </div>
+
+        
+        <div class="main-panel">
+          <!-- Navbar -->
+         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+            <div class="container-fluid">
+              <div class="navbar-wrapper">
+                <a class="navbar-brand" href="#0"> <% if (utmid == "4") { %> User Dashboard <% } %>  
+                                               
+                                                   <% else if (utmid == "3") { %>  Consultant Dashboard  <% } %> 
+                
+                                                   <% else if (utmid == "2") { %> Manager Dashboard  <% } %> 
+                
+                                                   <% else if (utmid == "1") { %> Admin Dashboard <% } %> 
+
+                </a>
+              </div>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="javascript:;">
+                      <asp:LinkButton ID="logout" runat="server" class="btn btn-danger" onClick="logout_Click">Logout</asp:LinkButton>
+                    </a>
+                  
+                  </li>
+                  <!-- your navbar here -->
+                </ul>
+              </div>
+            </div>
+          </nav>
+            <!-- End Navbar -->
+      
+          <div class="content">
+            <div class="container-fluid">
+              <!-- your content here -->
+                    <asp:ContentPlaceHolder ID="cpmain" runat="server"></asp:ContentPlaceHolder>
+            </div>
+          </div>
+      
+           <footer class="footer">
+            <div class="container-fluid">
+              <nav class="float-left">
+                <ul>
+                  <li>
+                      OAMS
+                
+                  </li>
+                </ul>
+              </nav>
+              <div class="copyright float-right">
+                &copy;
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>, made with <i class="material-icons">favorite</i> by
+                OAMS for a better Time Managebility.
+              </div>
+              <!-- your footer here -->
+            </div>
+          </footer>
+        </div>
+ </div>
+</form>
+</body>
+</html>
